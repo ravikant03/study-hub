@@ -1,0 +1,33 @@
+{
+  "name": "studyhub-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^9.0.1",
+    "@mui/x-data-grid": "^9.1.0",
+    "@tailwindcss/postcss": "^4.1.17",
+    "formik": "^2.4.6",
+    "lucide-react": "^0.468.0",
+    "next": "16.2.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.17",
+    "yup": "^1.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0",
+    "eslint-config-next": "16.2.6"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  }
+}
