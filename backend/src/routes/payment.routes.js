@@ -2,10 +2,11 @@ import express from "express";
 import {
   confirmPayment,
   createPaymentOrder,
+  getAllPayments,
   getMyPayments,
   getPaymentById
 } from "../controllers/payment.controller.js";
-import { authenticate } from "../middleware/auth.middleware.js";
+import { authenticate, authorize } from "../middleware/auth.middleware.js";
 import { requireFields } from "../middleware/validate.middleware.js";
 
 const router = express.Router();
@@ -19,6 +20,7 @@ router.post(
   confirmPayment
 );
 router.get("/me", getMyPayments);
+router.get("/", authorize("admin"), getAllPayments);
 router.get("/:id", getPaymentById);
 
 export default router;

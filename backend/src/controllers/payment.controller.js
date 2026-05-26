@@ -107,3 +107,13 @@ export const getMyPayments = asyncHandler(async (req, res) => {
   const payments = await Payment.find({ user: req.user._id }).populate("course", "title slug").sort("-createdAt");
   res.json({ success: true, count: payments.length, data: payments });
 });
+
+export const getAllPayments = asyncHandler(async (req, res) => {
+  const payments = await Payment.find()
+    .populate("user", "name email")
+    .populate("course", "title slug")
+    .populate("enrollment", "status")
+    .sort("-createdAt");
+
+  res.json({ success: true, count: payments.length, data: payments });
+});

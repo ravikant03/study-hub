@@ -33,8 +33,8 @@ export default function AdminDashboardPage() {
       fetchList("/courses?status=all", fallbackCourses),
       fetchList("/categories", fallbackCategories),
       fetchList("/instructors", fallbackInstructors),
-      fetchList("/enrollments/me", fallbackEnrollments),
-      fetchList("/payments/me", fallbackPayments)
+      fetchList("/enrollments", fallbackEnrollments),
+      fetchList("/payments", fallbackPayments)
     ]).then(([courseData, categoryData, instructorData, enrollmentData, paymentData]) => {
       setCourses(courseData);
       setCategories(categoryData);
