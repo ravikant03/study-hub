@@ -18,6 +18,10 @@ const isPublicRoute = (pathname) => {
   return publicRoutes.some((route) => route !== "/" && pathname.startsWith(`${route}/`));
 };
 
+const isInstructorWorkspaceRoute = (pathname) => {
+  return pathname === "/instructor" || pathname.startsWith("/instructor/");
+};
+
 export function RouteGuard({ children }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -36,7 +40,7 @@ export function RouteGuard({ children }) {
       return;
     }
 
-    if (pathname.startsWith("/instructor") && !isInstructor && !isAdmin) {
+    if (isInstructorWorkspaceRoute(pathname) && !isInstructor && !isAdmin) {
       router.replace("/");
     }
   }, [pathname, router, user, loading, isAdmin, isInstructor]);
@@ -57,7 +61,7 @@ export function RouteGuard({ children }) {
     return null;
   }
 
-  if (pathname.startsWith("/instructor") && !isInstructor && !isAdmin) {
+  if (isInstructorWorkspaceRoute(pathname) && !isInstructor && !isAdmin) {
     return null;
   }
 
